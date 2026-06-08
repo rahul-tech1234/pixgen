@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className={`${outfit.class}`}>
                 <Navbar />
-                {children}
+                <main className="w-10/12 mx-auto">{children}</main>
                 <Footer />
             </body>
         </html>
