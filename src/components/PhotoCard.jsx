@@ -2,6 +2,7 @@ import {ArrowDownToSquare, HeartFill} from '@gravity-ui/icons';
 import { Button, Card, Chip } from "@heroui/react";
 import Image from "next/image";
 import { Separator } from '@heroui/react';
+import Link from 'next/link';
 const PhotoCard = ({photo}) => {
     console.log(photo.imageUrl);
     return (
@@ -31,7 +32,7 @@ const PhotoCard = ({photo}) => {
                     <p>{photo.downloads}</p>
                 </div>
                 </div>
-                <Button className={'w-full'} variant='outline'>View</Button>
+                <Link href={`/all-photos/${photo.id}`}><Button className={'w-full'} variant='outline'>View</Button></Link>
             </Card>
         </div>
     );
