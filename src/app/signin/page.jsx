@@ -11,25 +11,22 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
-import { useRouter } from "next/navigation";
-export default function SignUpPage() {
-  const router=useRouter();
-    const onSubmit = async (e) => {
+
+export default function SignInPage() {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const name=e.target.name.value;
-    const image=e.target.image.value;
+    //const name=e.target.name.value;
+    //const image=e.target.image.value;
     const email=e.target.email.value;
     const password=e.target.password.value;
     //console.log(name,image,email,password);
-    const {data, error}=await authClient.signUp.email({
-        name,
-        image,
+    const {data, error}=await authClient.signIn.email({
         email,
-        password
+        password,
+        callbackURL: '/',
     })
     console.log({data,error});
     if(data){
-        router.push('/')
         alert('signup success');
     }else{
         alert('enter valid email')
@@ -38,21 +35,9 @@ export default function SignUpPage() {
 
   return (
     <Card className="border mx-auto w-125 py-10 mt-5">
-      <h1 className="text-center text-2xl font-bold">Sign Up</h1>
+      <h1 className="text-center text-2xl font-bold">Sign In</h1>
 
-      <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
-        <TextField isRequired name="name" type="text">
-          <Label>Name</Label>
-          <Input placeholder="Enter your name" />
-          <FieldError />
-        </TextField>
-
-        <TextField isRequired name="image" type="text">
-          <Label>Image URL</Label>
-          <Input placeholder="Image URL" />
-          <FieldError />
-        </TextField>
-
+      <Form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>  
         <TextField
           isRequired
           name="email"
