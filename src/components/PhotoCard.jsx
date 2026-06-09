@@ -23,12 +23,12 @@ const PhotoCard = ({photo}) => {
                 </div>
                 <div className='flex gap-5'>
                     <div className='flex items-center gap-2'>
-                    <p><HeartFill /></p>
+                    <p><HeartFill className='text-red-700'/></p>
                     <p>{photo.likes}</p>
                 </div>
                 <Separator orientation='vertical'></Separator>
                 <div className='flex items-center gap-2'>
-                    <p><ArrowDownToSquare /></p>
+                    <p><ArrowDownToSquare className='text-green-500'/></p>
                     <p>{photo.downloads}</p>
                 </div>
                 </div>
